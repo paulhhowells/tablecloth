@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablecloth</title>
+    <!--
+    Uses work done by http://dbushell.com/2016/03/04/css-only-responsive-tables/
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        color: #111;
+        background-color: #fff;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 100%;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        line-height: 1.5;
+      }
+      input[type=text] {
+        font-size: 1em;
+      }
+      h1 {
+        font-size: 4em;
+        font-weight: 900;
+        line-height: 1.125;
+        letter-spacing: -5pt;
+        margin: 0 0 0.25em 0;
+        padding: 0;
+        color: #444;
+      }
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 1.5em 0 0.25em 0;
+      }
+
+      table {
+        margin: 0;
+        border-collapse: collapse;
+        white-space: nowrap;
+      }
+      thead {
+        background-color: #f9f9f9;
+      }
+      tbody {}
+      th,
+      td {
+        padding: 0.5em 0.75em;
+        min-height: 2em; /* Disparity between checkbox & text. */
+        min-width: 2em;
+        border-right: 1px solid #ccc;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.twist {
+        display: flex;
+      }
+      table.twist thead {
+        display: flex;
+        flex-shrink: 0;
+        min-width: min-content;
+      }
+      table.twist tbody {
+        display: flex;
+        position: relative;
+      }
+      table.twist tr {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        min-width: min-content;
+      }
+      table.twist th,
+      table.twist td {
+        display: block;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .stripe tbody tr:nth-child(odd) {
+        background-color: #e3e3e3;
+      }
+
+      table.twist--fix {
+        border-right: 7px solid #700;
+        background-color: #eee;
+      }
+      table.twist--fix tbody {
+        overflow-x: scroll;
+      }
+      table.twist--fix th {
+        color: #800;
+      }
+
+      .table {
+        margin: 1em 0;
+        overflow: scroll;
+        border-right: 7px solid #333;
+        background-color: #eee;
+      }
+
+      .wrapper {
+        width: 60em;
+        margin: 0 auto;
+        padding: 1em;
+        background-color: #ccc;
+        min-height: 100vh;
+      }
+
+      @media only screen and (max-width: 66em) {
+        .wrapper {
+          width: auto;
+          margin: 0 3em;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Tablecloth</h1>
+
+      <h2>overflow has horizontal scroll</h2>
+      <div class="table">
+        <table
+          class="stripe"
+          summary="This table contains what the table contains">
+          <thead>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" id="c0" /></td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="c1" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="c2" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="c3" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="c4" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>rotated, and table overflow scrolls</h2>
+      <div class="table">
+        <table
+          class="twist stripe"
+          summary="This table contains what the table contains">
+          <thead>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" id="t0" /></td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="t1" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="t2" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="t3" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="t4" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>rotated, thead fixed, and tbody overflow scrolls</h2>
+      <div class="">
+        <table
+          class="twist twist--fix stripe"
+          summary="This table contains what the table contains">
+          <thead>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" id="t0" /></td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+              <td>12345678901234567890</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="t1" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+
+            <tr>
+              <td><input type="checkbox" id="t2" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="t3" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" id="t4" /></td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+              <td>12345</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><a href="http://dbushell.com/2016/03/04/css-only-responsive-tables/">Uses work done by dbushell.com/2016/03/04/css-only-responsive-tables/</a></p>
+      </div>
+
+    </div>
+  </body>
+</html>
